@@ -103,7 +103,7 @@ namespace StencilDebugger
 
                     builder.SetRenderFunc((PassData _, RasterGraphContext context) =>
                     {
-                        Blitter.BlitTexture(context.cmd, debugHandle, new Vector4(1, 1, 0, 0), 0, false);
+                        Blitter.BlitCameraTexture(context.cmd, debugHandle, colorHandle, 0, false);
                     });
                 }
             }
@@ -119,7 +119,7 @@ namespace StencilDebugger
                 desc.depthStencilFormat = GraphicsFormat.None;
                 desc.enableRandomWrite = true;
 
-                RenderingUtils.ReAllocateHandleIfNeeded(ref debugRTHandle, desc);
+                RenderingUtils.ReAllocateIfNeeded(ref debugRTHandle, desc);
             }
 
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
