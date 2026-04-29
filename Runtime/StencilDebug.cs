@@ -144,7 +144,7 @@ namespace StencilDebugger
 
                     cmd.DispatchCompute(debug, debugKernel, DivRoundUp(renderingData.cameraData.cameraTargetDescriptor.width, 8), DivRoundUp(renderingData.cameraData.cameraTargetDescriptor.height, 8), 1);
 
-                    Blitter.BlitTexture(cmd, debugHandle, new Vector4(1, 1, 0, 0), 0, false);
+                    Blitter.BlitCameraTexture(cmd, debugHandle, new Vector4(1, 1, 0, 0), 0, false);
                 }
                 
                 context.ExecuteCommandBuffer(cmd);
